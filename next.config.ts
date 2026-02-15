@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  // outputFileTracingRoot: DÉSACTIVÉ - cassait build Vercel (Iris 15/02/2026)
   typescript: {
     ignoreBuildErrors: true,
   },
