@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Site en construction - Clarisse Surin Avocat
+# Ne pas indexer jusqu'à mise en production
