@@ -194,12 +194,12 @@ function HeroSection() {
         </div>
         
         <motion.div style={{ opacity, scale }} className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="relative w-full max-w-[1800px] mx-auto px-8">
+          <div className="relative w-full max-w-[1800px] mx-auto px-4 md:px-8">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2.5 }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5"
+              className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5"
             />
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center py-20 lg:min-h-screen lg:py-32">
@@ -245,7 +245,7 @@ function HeroSection() {
                   </span>
                 </div>
 
-                <h1 className="font-['Bebas_Neue'] text-[12vw] lg:text-[8rem] leading-[0.85] tracking-tight text-white mb-8">
+                <h1 className="font-['Bebas_Neue'] text-3xl sm:text-4xl lg:text-[8rem] leading-[0.85] tracking-tight text-white mb-8">
                   DEUX
                   <br />
                   <span className="text-transparent" style={{ WebkitTextStroke: '2px white' }}>
@@ -269,16 +269,14 @@ function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 3.5 }}
                 >
-                  <Magnetic>
-                    <a
-                      href="#manifeste"
-                      className="inline-flex items-center gap-3 text-white font-['Instrument_Sans'] group"
-                      data-hover
-                    >
-                      <span className="text-sm tracking-wider uppercase">Découvrir notre manifeste</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </a>
-                  </Magnetic>
+                  <a
+                    href="#manifeste"
+                    className="inline-flex items-center gap-3 px-6 py-3 sm:px-0 sm:py-0 bg-white/10 sm:bg-transparent rounded-full sm:rounded-none text-white font-['Instrument_Sans'] group"
+                    data-hover
+                  >
+                    <span className="text-xs sm:text-sm tracking-wider uppercase">Découvrir notre manifeste</span>
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
+                  </a>
                 </motion.div>
               </motion.div>
 
@@ -591,11 +589,11 @@ function CandidatesDetailSection() {
               <span className="text-white/30 text-sm tracking-[0.3em] uppercase font-['Instrument_Sans'] block mb-4">
                 {candidates[activeCandidate].role}
               </span>
-              <h2 className="font-['Bebas_Neue'] text-6xl md:text-7xl text-white mb-6 tracking-wide">
+              <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl md:text-7xl text-white mb-6 tracking-wide">
                 {candidates[activeCandidate].name}
               </h2>
               
-              <blockquote className="text-2xl text-white/70 font-['Instrument_Sans'] italic mb-8 leading-relaxed">
+              <blockquote className="text-lg sm:text-2xl text-white/70 font-['Instrument_Sans'] italic mb-8 leading-relaxed">
                 &ldquo;{candidates[activeCandidate].quote}&rdquo;
               </blockquote>
 
@@ -647,7 +645,7 @@ function StatsSection() {
               transition={{ delay: idx * 0.1 }}
               className="text-center"
             >
-              <span className="font-['Bebas_Neue'] text-7xl md:text-8xl text-white block mb-2">
+              <span className="font-['Bebas_Neue'] text-5xl md:text-8xl text-white block mb-2">
                 {stat.value}
               </span>
               <span className="font-['Instrument_Sans'] text-white/40 text-sm tracking-wider uppercase">
@@ -670,7 +668,7 @@ function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-['Bebas_Neue'] text-5xl md:text-8xl lg:text-[10rem] text-white leading-none mb-8 md:mb-12">
+          <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl md:text-8xl lg:text-[10rem] text-white leading-none mb-8 md:mb-12">
             REJOIGNEZ
             <br />
             <span className="text-transparent" style={{ WebkitTextStroke: '2px white' }}>
@@ -752,7 +750,6 @@ export default function V3Page() {
       <main className="min-h-screen bg-black text-white overflow-x-hidden">
         <Grain />
         <Cursor />
-        <VersionSwitcher />
         <HeroSection />
         <ManifesteSection />
         <HorizontalScrollSection />
