@@ -216,15 +216,15 @@ function HeroSection() {
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3f1dffb1-af34-4504-ad53-002ab57ea34a/Clarisse-Surin-Barreau-de-Paris-agrandi-1768856738089.png?width=8000&height=8000&resize=contain"
                     alt="Clarisse Surin"
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                    className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                     <span className="text-white/50 text-sm tracking-[0.2em] uppercase font-['Instrument_Sans'] block mb-2">
                       Candidate Bâtonnière
                     </span>
-                    <h2 className="font-['Bebas_Neue'] text-5xl md:text-6xl text-white tracking-wide">
+                    <h2 className="font-['Bebas_Neue'] text-4xl md:text-6xl text-white tracking-wide">
                       Clarisse
                       <br />
                       Surin
@@ -293,7 +293,7 @@ function HeroSection() {
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
                     alt="Philippe Moreau"
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
+                    className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                   
