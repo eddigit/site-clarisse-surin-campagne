@@ -202,7 +202,7 @@ function HeroSection() {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5"
             />
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-screen py-32">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center py-20 lg:min-h-screen lg:py-32">
               <motion.div
                 style={{ y: y1 }}
                 initial={{ opacity: 0, x: -100 }}
@@ -211,7 +211,7 @@ function HeroSection() {
                 className="relative group"
                 data-hover
               >
-                <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
+                <div className="relative aspect-square lg:aspect-[3/4] overflow-hidden rounded-3xl">
                   <Image
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3f1dffb1-af34-4504-ad53-002ab57ea34a/Clarisse-Surin-Barreau-de-Paris-agrandi-1768856738089.png?width=8000&height=8000&resize=contain"
                     alt="Clarisse Surin"
@@ -290,7 +290,7 @@ function HeroSection() {
                 className="relative group lg:mt-32"
                 data-hover
               >
-                <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
+                <div className="relative aspect-square lg:aspect-[3/4] overflow-hidden rounded-3xl">
                   <Image
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
                     alt="Philippe Moreau"
@@ -358,44 +358,81 @@ function HorizontalScrollSection() {
   ];
 
   return (
-    <section ref={targetRef} className="relative h-[200vh] bg-black">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-8 pl-16">
-          <div className="flex flex-col justify-center min-w-[300px] pr-8">
-            <span className="text-white/30 text-sm tracking-[0.3em] uppercase font-['Instrument_Sans'] block mb-4">
-              Nos engagements
-            </span>
-            <h2 className="font-['Bebas_Neue'] text-6xl text-white leading-none">
-              LES CHANTIERS
-              <br />
-              PRIORITAIRES
-            </h2>
-          </div>
+    <>
+      {/* Desktop: horizontal scroll */}
+      <section ref={targetRef} className="hidden md:block relative h-[200vh] bg-black">
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+          <motion.div style={{ x }} className="flex gap-8 pl-16">
+            <div className="flex flex-col justify-center min-w-[300px] pr-8">
+              <span className="text-white/30 text-sm tracking-[0.3em] uppercase font-['Instrument_Sans'] block mb-4">
+                Nos engagements
+              </span>
+              <h2 className="font-['Bebas_Neue'] text-6xl text-white leading-none">
+                LES CHANTIERS
+                <br />
+                PRIORITAIRES
+              </h2>
+            </div>
 
+            {items.map((item, idx) => (
+              <div
+                key={idx}
+                className="group relative h-[420px] w-[480px] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900"
+                data-hover
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                <div className="absolute bottom-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform">
+                  <h3 className="font-['Bebas_Neue'] text-3xl text-white mb-3">{item.title}</h3>
+                  <p className="font-['Instrument_Sans'] text-white/60 text-base max-w-sm">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mobile: vertical stack */}
+      <section className="md:hidden bg-black py-16 px-6">
+        <div className="mb-10">
+          <span className="text-white/30 text-sm tracking-[0.3em] uppercase font-['Instrument_Sans'] block mb-4">
+            Nos engagements
+          </span>
+          <h2 className="font-['Bebas_Neue'] text-5xl text-white leading-none">
+            LES CHANTIERS
+            <br />
+            PRIORITAIRES
+          </h2>
+        </div>
+        <div className="space-y-6">
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="group relative h-[420px] w-[480px] flex-shrink-0 overflow-hidden rounded-3xl bg-neutral-900"
-              data-hover
+              className="group relative h-64 overflow-hidden rounded-2xl bg-neutral-900"
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-50 group-hover:opacity-100 group-hover:scale-105"
+                className="object-cover opacity-60 group-active:opacity-100 transition-opacity duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-              <div className="absolute bottom-0 p-8 translate-y-4 group-hover:translate-y-0 transition-transform">
-                <h3 className="font-['Bebas_Neue'] text-3xl text-white mb-3">{item.title}</h3>
-                <p className="font-['Instrument_Sans'] text-white/60 text-base max-w-sm">
-                  {item.desc}
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+              <div className="absolute bottom-0 p-6">
+                <h3 className="font-['Bebas_Neue'] text-2xl text-white mb-2">{item.title}</h3>
+                <p className="font-['Instrument_Sans'] text-white/60 text-sm">{item.desc}</p>
               </div>
             </div>
           ))}
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -418,18 +455,18 @@ function ManifesteSection() {
         </motion.div>
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-8">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
         >
           <div>
             <span className="text-white/30 text-sm tracking-[0.3em] uppercase font-['Instrument_Sans'] block mb-6">
               Notre manifeste
             </span>
-            <h2 className="font-['Bebas_Neue'] text-6xl md:text-8xl text-white leading-[0.9] mb-8">
+            <h2 className="font-['Bebas_Neue'] text-5xl md:text-7xl lg:text-8xl text-white leading-[0.9] mb-6 md:mb-8">
               LE BARREAU
               <br />
               <span className="text-transparent" style={{ WebkitTextStroke: '1px white' }}>
@@ -501,7 +538,7 @@ function CandidatesDetailSection() {
 
   return (
     <section className="relative py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex gap-4 mb-16 justify-center">
           {candidates.map((candidate, idx) => (
             <button
@@ -526,9 +563,9 @@ function CandidatesDetailSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.5 }}
-            className="grid lg:grid-cols-2 gap-16 items-center"
+            className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
           >
-            <div className="relative">
+            <div className="relative mb-10 lg:mb-0">
               <div className="relative aspect-square overflow-hidden rounded-3xl">
                 <Image
                   src={candidates[activeCandidate].image}
@@ -538,12 +575,12 @@ function CandidatesDetailSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               </div>
-              
+
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.3, type: "spring" }}
-                className="absolute -bottom-8 -right-8 w-48 h-48 bg-white rounded-3xl p-6 flex flex-col justify-center shadow-2xl"
+                className="hidden lg:flex absolute -bottom-8 -right-8 w-48 h-48 bg-white rounded-3xl p-6 flex-col justify-center shadow-2xl"
               >
                 <span className="font-['Bebas_Neue'] text-6xl text-black">25+</span>
                 <span className="font-['Instrument_Sans'] text-black/60 text-sm">années d&apos;expérience</span>
@@ -599,8 +636,8 @@ function StatsSection() {
 
   return (
     <section className="relative py-16 overflow-hidden border-y border-white/10 bg-white/5">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -627,13 +664,13 @@ function StatsSection() {
 function ContactSection() {
   return (
     <section className="relative py-20">
-      <div className="max-w-4xl mx-auto px-8 text-center">
+      <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-['Bebas_Neue'] text-6xl md:text-[10rem] text-white leading-none mb-12">
+          <h2 className="font-['Bebas_Neue'] text-5xl md:text-8xl lg:text-[10rem] text-white leading-none mb-8 md:mb-12">
             REJOIGNEZ
             <br />
             <span className="text-transparent" style={{ WebkitTextStroke: '2px white' }}>
@@ -644,11 +681,11 @@ function ContactSection() {
           <Magnetic>
             <a
               href="mailto:contact@barreau2025.fr"
-              className="inline-flex items-center gap-6 px-16 py-8 bg-white text-black rounded-full font-['Bebas_Neue'] text-3xl tracking-wider hover:scale-105 transition-transform shadow-2xl"
+              className="inline-flex items-center gap-4 md:gap-6 px-8 py-5 md:px-16 md:py-8 bg-white text-black rounded-full font-['Bebas_Neue'] text-xl md:text-3xl tracking-wider hover:scale-105 transition-transform shadow-2xl"
               data-hover
             >
               Écrire l&apos;histoire
-              <ArrowRight className="w-8 h-8" />
+              <ArrowRight className="w-5 h-5 md:w-8 md:h-8" />
             </a>
           </Magnetic>
         </motion.div>
@@ -660,7 +697,7 @@ function ContactSection() {
 function Footer() {
   return (
     <footer className="border-t border-white/10 py-12">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <span className="font-['Bebas_Neue'] text-2xl text-white tracking-wider">
             BARREAU 2025

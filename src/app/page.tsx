@@ -64,15 +64,15 @@ function Navigation() {
         </div>
 
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             className="md:hidden mt-4 pb-4 flex flex-col gap-4"
           >
-            <a href="#candidats" className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Candidats</a>
-            <a href="#programme" className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Programme</a>
-            <a href="#engagements" className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Engagements</a>
-            <a href="#contact" className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Contact</a>
+            <a href="#candidats" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Candidats</a>
+            <a href="#programme" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Programme</a>
+            <a href="#engagements" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Engagements</a>
+            <a href="#contact" onClick={() => setIsOpen(false)} className="text-white/80 hover:text-[#c9a55c] transition-colors font-['Outfit']">Contact</a>
           </motion.div>
         )}
       </div>
@@ -91,7 +91,7 @@ function HeroSection() {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#c9a55c]/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -196,7 +196,7 @@ const candidates = [
   ];
 
   return (
-    <section id="candidats" className="py-32 relative overflow-hidden">
+    <section id="candidats" className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#0a0f1c]">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#c9a55c]/5 rounded-full blur-3xl" />
       </div>
@@ -206,7 +206,7 @@ const candidates = [
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
         >
           <span className="inline-block px-4 py-2 rounded-full border border-[#c9a55c]/30 text-[#c9a55c] text-sm font-['Outfit'] tracking-wider uppercase mb-6">
             Notre binôme
@@ -230,7 +230,7 @@ const candidates = [
               className="group"
             >
               <div className="relative glass rounded-3xl overflow-hidden">
-                <div className="relative h-96 overflow-hidden">
+                <div className="relative h-60 md:h-96 overflow-hidden">
                   <Image
                     src={candidate.image}
                     alt={candidate.name}
@@ -319,7 +319,7 @@ function ProgrammeSection() {
   ];
 
   return (
-    <section id="programme" className="py-32 relative">
+    <section id="programme" className="py-16 md:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1c] via-[#111827] to-[#0a0f1c]" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -327,7 +327,7 @@ function ProgrammeSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
         >
           <span className="inline-block px-4 py-2 rounded-full border border-[#c9a55c]/30 text-[#c9a55c] text-sm font-['Outfit'] tracking-wider uppercase mb-6">
             Notre vision
@@ -389,7 +389,7 @@ function EngagementsSection() {
   ];
 
   return (
-    <section id="engagements" className="py-32 relative overflow-hidden">
+    <section id="engagements" className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#0a0f1c]">
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#c9a55c]/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
       </div>
@@ -412,7 +412,7 @@ function EngagementsSection() {
               Des mesures concrètes et mesurables, pour un mandat au service de tous les avocats parisiens.
             </p>
 
-            <div className="relative h-80 rounded-2xl overflow-hidden">
+            <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80"
                 alt="Justice"
@@ -457,7 +457,7 @@ function EngagementsSection() {
 
 function CTASection() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-16 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-[#c9a55c]/20 via-[#c9a55c]/10 to-[#c9a55c]/20" />
       <div className="absolute inset-0 bg-[#0a0f1c]/90" />
 
@@ -503,7 +503,7 @@ function Footer() {
   return (
     <footer id="contact" className="py-20 border-t border-[#c9a55c]/10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-16">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Scale className="w-8 h-8 text-[#c9a55c]" />
