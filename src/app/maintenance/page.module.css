@@ -1,0 +1,18 @@
+.page { position: relative; isolation: isolate; min-height: 100svh; display: grid; place-items: center; background: #000; color: #fff; padding: 48px 24px; overflow: hidden; }
+.background { object-fit: cover; object-position: center; opacity: .4; z-index: -2; }
+.shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,.7) 65%, #000); z-index: -1; }
+.content { width: min(100%, 1050px); display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); align-items: center; gap: clamp(36px, 6vw, 88px); }
+.portrait { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 24px; overflow: hidden; }
+.photo { object-fit: cover; object-position: top; filter: grayscale(1); }
+.text h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(48px, 6vw, 82px); font-weight: 500; line-height: 1.05; margin: 0 0 28px; }
+.role { font-family: 'Outfit', sans-serif; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.5; font-weight: 300; color: rgba(255,255,255,.85); margin: 0; }
+.year { font-family: 'Outfit', sans-serif; font-size: clamp(32px, 4vw, 48px); letter-spacing: .14em; font-weight: 300; margin: 28px 0 0; }
+@media (max-width: 700px) {
+  .page { padding: 32px 24px; }
+  .content { grid-template-columns: 1fr; justify-items: center; gap: 28px; }
+  .portrait { width: min(76vw, 290px); }
+  .text { text-align: center; }
+  .text h1 { font-size: clamp(40px, 10vw, 60px); margin-bottom: 16px; }
+  .role { font-size: 20px; }
+  .year { font-size: 32px; margin-top: 16px; }
+}

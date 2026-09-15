@@ -1,18 +1,35 @@
-export default function MaintenancePage() {
+import Image from "next/image";
+import styles from "./page.module.css";
+
+export default function CampaignHoldingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">
-      <div className="text-center max-w-lg">
-        <div className="mb-8">
-          <div className="w-20 h-20 mx-auto bg-amber-500 rounded-full flex items-center justify-center">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </div>
+    <main className={styles.page}>
+      <Image
+        src="https://images.unsplash.com/photo-1549144511-f099e773c147?w=1920&q=80"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className={styles.background}
+      />
+      <div className={styles.shade} aria-hidden="true" />
+      <section className={styles.content} aria-labelledby="candidate-name">
+        <div className={styles.portrait}>
+          <Image
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/3f1dffb1-af34-4504-ad53-002ab57ea34a/Clarisse-Surin-Barreau-de-Paris-agrandi-1768856738089.png?width=8000&height=8000&resize=contain"
+            alt="Clarisse Surin"
+            fill
+            priority
+            sizes="(max-width: 700px) 76vw, 400px"
+            className={styles.photo}
+          />
         </div>
-        <h1 className="text-4xl font-bold text-white mb-4">Site en construction</h1>
-        <p className="text-xl text-slate-300 mb-8">Clarisse Surin — Avocat au Barreau de Paris</p>
-        <p className="text-slate-400">Notre site sera bientôt disponible.</p>
-      </div>
-    </div>
-  )
+        <div className={styles.text}>
+          <h1 id="candidate-name">Clarisse Surin</h1>
+          <p className={styles.role}>Candidate bâtonnière<br />au Barreau de Paris</p>
+          <p className={styles.year}>2028</p>
+        </div>
+      </section>
+    </main>
+  );
 }

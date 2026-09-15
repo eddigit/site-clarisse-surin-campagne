@@ -1,17 +1,13 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const path = request.nextUrl.pathname
-  
-  // Rediriger la homepage vers /v3
-  if (path === '/') {
-    return NextResponse.redirect(new URL('/v3', request.url))
-  }
-  
-  return NextResponse.next()
+  // Keep every public campaign URL on the holding page until its replacement.
+  const url = request.nextUrl.clone();
+  url.pathname = "/maintenance";
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
-}
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+};
